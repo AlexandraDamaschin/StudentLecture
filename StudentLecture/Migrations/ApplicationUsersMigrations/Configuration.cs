@@ -34,8 +34,8 @@ namespace StudentLecture.Migrations.ApplicationUsersMigrations
             //    );
             //
 
-            SeedUsers(context);
-            SeedRoles(context);
+           SeedUsers(context);
+           SeedRoles(context);
         }
 
         private void SeedRoles(ApplicationDbContext context)
