@@ -11,7 +11,7 @@ namespace StudentLecture.Models.StudentLectureModels
     public class Student
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         [Display(Name = "Student ID")]
         public string StudentId { get; set; }
 
