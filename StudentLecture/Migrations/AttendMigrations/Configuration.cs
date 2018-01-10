@@ -32,6 +32,8 @@ namespace StudentLecture.Migrations.AttendMigrations
             //SeedSubjects(context);
             //SeedStudents(context);
             //SeedStudentSubjects(context);
+            //SeedLectures(context);
+            //SeedAttendaces(context);
         }
 
         private void SeedSubjects (AttendDBContext context)
@@ -66,6 +68,32 @@ namespace StudentLecture.Migrations.AttendMigrations
                 new StudentSubject { StudentId = "S02", SubjectId = 8 }
              );
         }
+
+        //seed lectures and each lecture teaching one subject each
+        private void SeedLectures(AttendDBContext context)
+        {
+            context.Lectures.AddOrUpdate(
+                new Lecture { LectureId = 1, LectureName = "John K" },
+                new Lecture { LectureId = 2, LectureName = "Kathy B" }
+             );
+
+            context.LectureSubjects.AddOrUpdate(
+                new LectureSubject { LectureId = 1, SubjectId = 1 },
+                new LectureSubject { LectureId = 2, SubjectId = 8 }
+            );
+        }
+
+        //seed attendance
+        private void SeedAttendaces(AttendDBContext  context)
+        {
+            context.Attendances.AddOrUpdate(
+                new Attendance { AttendanceId = 1, AttendanceDate = DateTime.Now, SubjectId = 1, StudentId = "S01", Present = true },
+                new Attendance { AttendanceId = 2, AttendanceDate = DateTime.Now, SubjectId = 2, StudentId = "S01", Present = false },
+                new Attendance { AttendanceId = 3, AttendanceDate = DateTime.Now, SubjectId = 3, StudentId = "S02", Present = true },
+                new Attendance { AttendanceId = 4, AttendanceDate = DateTime.Now, SubjectId = 8, StudentId = "S02", Present = true }
+                );
+        }
+        
 
     }
 }
