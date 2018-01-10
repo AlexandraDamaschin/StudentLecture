@@ -1,0 +1,19 @@
+﻿--------------------------------------------------------------------------------------------------------------------------------
+First 
+enable migrations for a certain context in a certain folder
+Enable-Migrations -ContextTypeName StudentLecture.Models.ApplicationDbContext -MigrationsDirectory Migrations/ApplicationUsersMigrations
+Enable-Migrations -ContextTypeName StudentLecture.Models.StudentLectureModels.AttendDBContext -MigrationsDirectory Migrations.AttendMigrations
+
+--------------------------------------------------------------------------------------------------------------------------------
+Second 
+Add migrations and update database
+
+for the main migration
+add-Migration -ConfigurationTypeName StudentLecture.Migrations.ApplicationUsersMigrations.Configuration
+update-database -ConfigurationTypeName StudentLecture.Migrations.ApplicationUsersMigrations.Configuration
+
+for a certain migration
+add-Migration -ConfigurationTypeName StudentLecture.Migrations.AttendMigrations.Configuration
+update-database -ConfigurationTypeName StudentLecture.Migrations.AttendMigrations.Configuration
+
+--------------------------------------------------------------------------------------------------------------------------------

@@ -10,12 +10,12 @@ namespace StudentLecture.Models.StudentLectureModels
     [Table("StudentSubject")]
     public class StudentSubject
     {
-        [Key]
+        [Key, Column(Order = 1)]
         [ForeignKey("assocStudent")]
         [Display(Name = "Student ID")]
         public string StudentId { get; set; }
 
-        [Key]
+        [Key, Column(Order = 2)]
         [ForeignKey("assocSubject")]
         [Display(Name = "Subject ID")]
         public int SubjectId { get; set; }
