@@ -36,7 +36,7 @@ namespace StudentLecture.Migrations.AttendMigrations
             //SeedAttendaces(context);
         }
 
-        private void SeedSubjects (AttendDBContext context)
+        private void SeedSubjects(AttendDBContext context)
         {
             context.Subjects.AddOrUpdate(
                 s => s.SubjectId,
@@ -45,6 +45,7 @@ namespace StudentLecture.Migrations.AttendMigrations
                 new Subject { SubjectName = "Database" },
                 new Subject { SubjectName = "Soft Prj Mgm" }
                 );
+            context.SaveChanges();
         }
         //when to put context.saveChanges()?
 
@@ -53,9 +54,10 @@ namespace StudentLecture.Migrations.AttendMigrations
         {
             context.Students.AddOrUpdate(
                   p => p.StudentId,
-                  new Student { StudentId = "S01", FirstName="Josh", LastName="Knock" },
+                  new Student { StudentId = "S01", FirstName = "Josh", LastName = "Knock" },
                   new Student { StudentId = "S02", FirstName = "Marry", LastName = "Lee" }
                 );
+            context.SaveChanges();
         }
 
         //seed student subjects
@@ -67,6 +69,7 @@ namespace StudentLecture.Migrations.AttendMigrations
                 new StudentSubject { StudentId = "S02", SubjectId = 3 },
                 new StudentSubject { StudentId = "S02", SubjectId = 8 }
              );
+            context.SaveChanges();
         }
 
         //seed lectures and each lecture teaching one subject each
@@ -81,10 +84,11 @@ namespace StudentLecture.Migrations.AttendMigrations
                 new LectureSubject { LectureId = 1, SubjectId = 1 },
                 new LectureSubject { LectureId = 2, SubjectId = 8 }
             );
+            context.SaveChanges();
         }
 
         //seed attendance
-        private void SeedAttendaces(AttendDBContext  context)
+        private void SeedAttendaces(AttendDBContext context)
         {
             context.Attendances.AddOrUpdate(
                 new Attendance { AttendanceId = 1, AttendanceDate = DateTime.Now, SubjectId = 1, StudentId = "S01", Present = true },
@@ -92,8 +96,9 @@ namespace StudentLecture.Migrations.AttendMigrations
                 new Attendance { AttendanceId = 3, AttendanceDate = DateTime.Now, SubjectId = 3, StudentId = "S02", Present = true },
                 new Attendance { AttendanceId = 4, AttendanceDate = DateTime.Now, SubjectId = 8, StudentId = "S02", Present = true }
                 );
+            context.SaveChanges();
         }
-        
+
 
     }
 }
